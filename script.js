@@ -49,8 +49,7 @@ const beginingArray = [
     ["63", "Blaine", "Quiz Master", "58"],
     ["98", "Bill", "Doctor’s Assistant", "26"]
 ]
-const transformToObject ={};
-//console.log(beginingArray[0])
+
 
 
 const allKeys = beginingArray.slice(0,1); //slice the header row 
@@ -69,6 +68,55 @@ const arrayToObject = allData.map(function(x){
 })
 
 console.log(arrayToObject);
+
+//Parth 4 Sorting and Manipulating Data
+console.log(`------------------Part 4------------------------`)
+
+//------ Sorted array
+ let sortArray = arrayToObject.sort((objectX, objectY) => {
+    return objectX.id - objectY.id;
+});
+console.log(sortArray);
+
+// ----- 1.Remove last element from the sorted array.
+removeLastElement = sortArray.pop()
+console.log(removeLastElement) //removed element
+console.log(sortArray); 
+
+//------2. insert an object at index 1
+let newObject= { id: "48", name: "Barry", occupation: "Runner", age: "25" }
+let insertInSortArray = sortArray.splice(1,0,newObject);
+console.log(sortArray);
+
+//-----3. add to the end of the array
+let lastElement = { id: "7", name: "Bilbo", occupation: "None", age: "111" }
+let addToEndOfSortArray = sortArray.push(lastElement);
+console.log(sortArray);
+
+//------ avarage age calculation.
+//with forEach extract all ages from each object.
+//Convert them to integer and push them to an array.
+let averageAge = [];
+sortArray.forEach((singleObject) => {
+    let stringToInteger = parseInt(singleObject.age)  
+    averageAge.push(stringToInteger)
+});
+console.log(averageAge);
+
+//Sum all the ages from the array - averageAge
+let sumOfAge = averageAge.reduce((accumulator, currentValue) => {
+       return accumulator + currentValue
+},0);
+console.log(sumOfAge);
+
+//calculating the average (deviding the total sumOfAge by the lenght of the array - averageAge)
+let avarageSumOfAge = sumOfAge / averageAge.length
+console.log(avarageSumOfAge) 
+
+
+
+
+
 
  
    
