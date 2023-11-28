@@ -114,6 +114,21 @@ let avarageSumOfAge = sumOfAge / averageAge.length
 console.log(avarageSumOfAge) 
 
 
+// ------------Part 5: Full Circle--------------------
+console.log(`------------------Part 5-----------------------`)
+
+console.log(sortArray) //final set of data from part 4
+//console.log(`ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor's Assistant,26`)
+let sortArrKeys=Object.keys(sortArray[0]) //collecting all keys from the object
+let result =  sortArrKeys
+sortArray.forEach(function(obj){     //looping over each object
+    result+= '\\n' + sortArrKeys.map(i=> obj[i])   //looping over each element of each object, adding \n with the values to the redult
+})
+console.log(result)
+console.log(sortArrKeys)
+
+
+
 
 
 
